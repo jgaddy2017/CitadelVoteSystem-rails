@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<h1 style="text-align: center"><%= @company %></h1>
+	</div>
+</div>
+<hr>
+
+<%= form_tag do %>
+<div class="row">
+	<% @result.each do |can| %>
+		<div class="col-sm-3" style="text-align:center">
+			<div class="col-sm-12">
+			<input type="radio" name="candidateList" id="<%= can.id %>" value="<%= can.id %>"><label for="<%= can.id %>">&nbsp;<%= can.name %></label>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<button type="submit" id="castVote" name="castVote" class="form-control">Cast Vote</button>
+	</div>
+</div>
+<% end %>

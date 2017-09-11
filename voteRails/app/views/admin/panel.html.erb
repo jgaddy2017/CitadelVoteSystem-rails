@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<h1 style="text-align: center">Admin Panel</h1>
+	</div>
+</div>
+
+<hr>
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<div class="col-sm-12">
+			<h3 style="text-align:center">Manage Cadets and their Cwids</h3>
+		</div>
+		<div class="col-sm-12">
+			<%= button_to "Manage CWID's", adminCadetMan_path, :method => "get", class: 'form-control' %>
+		</div>
+		<div class="col-sm-12">
+			<%= button_to "Back", logPage_path, :method => "get", class: 'form-control' %>
+		</div>
+	</div>
+</div>
+
+</hr>
+<div class="row">
+	<div class="col-sm-6" style="text-align: center">
+		<div class="col-sm-12">
+			<h3>Vote Total</h3>
+		</div>
+			<h3><%= @companyName %> Company</h3>
+			<% @organizedVotes.each do |candidate| %>
+				<% if candidate[2].to_s != @companyName.to_s %>
+					<% @companyName = candidate[2] %>
+					<h3><%= @companyName %> Company</h3>
+				<% end %>
+			<div class="col-sm-6">
+				<h4><%= candidate[0] %></h4>
+			</div>
+			<div class="col-sm-6">
+				<h4><%= candidate[1] %></h4>
+			</div>
+			<% end %>
+	</div>
+	
+	
+	<div class="col-sm-6">
+		<div class="col-sm-12">
+			<h3 style="text-align:center">Manage Candidates</h3>
+		</div>
+		<%= form_tag do %>
+		<div class="col-sm-6">
+			<select class="form-control" name="company" id="company">
+  				<option value=""></option>
+  				<option value="Alpha">Alpha</option>
+  				<option value="Bravo">Bravo</option>
+ 				<option value="Charlie">Charlie</option>
+ 				<option value="Delta">Delta</option>
+			</select>
+		</div>
+		<br>	
+		<div class="col-sm-6">
+			<button type="submit" id="addCandidate" name="addCandidate" class="form-control">Add Candidates</button>
+		</div>
+		<br>
+		<div class="col-sm-12">
+			<input type="text" id="newCandidate" name="newCandidate" class="form-control" placeholder="Add Candidates Names Here">
+		</div>
+		
+		
+		<% @candidates.each do |can| %>
+			<div class="col-sm-12">
+				<label for="<%= can[:id] %>"><input type="checkbox" name="candidateList" id="<%= can[:id] %>" value="<%= can[:id] %>">&nbsp;
+					<%= can[:name] %></label>
+			</div>
+		<% end %>
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" name="deleteCandidate" id="deleteCandidate" class="form-control">Delete Selected Candidates</button>
+		</div>
+		<% end %>
+	</div>
+	
+</div>

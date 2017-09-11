@@ -1,0 +1,31 @@
+<%= form_tag do %>
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<h1 style="text-align: center">Admin Log In</h1>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<label class="col-sm-12" for="adminUser">Admin Username</label>
+		<div class="col-sm-12">
+			<input type="text" name="adminUser" id="adminUser" class="form-control">
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<label class="col-sm-12" for="adminPass">Admin Password</label>
+		<div class="col-sm-12">
+			<input type="text" name="adminPass" id="adminPass" class="form-control">
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+		<button type="submit" name="enterAdmin" id="enterAdmin" class="form-control">Enter</button>
+	</div>
+</div>
+<% end %>
